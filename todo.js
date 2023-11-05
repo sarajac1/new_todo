@@ -1,11 +1,20 @@
 //1. Deklarera en variabel med namnet todoList
-let todoList = {
+const todoList = {
   items: [],
   
+  //Lägg till en funktion som lägger till en sak till listan 
   addToList(description) {
-    let item = { description};
+    let item = { description}
     this.items.push(item)
     console.log(this.items)
+  },
+
+  //Lägg till en sak att göra överst i listan
+  addToTopOfList(description) {
+    let item = { description }
+    this.items.unshift(item)
+    console.log(this.items)
+    
   }
 
 }
