@@ -1,6 +1,8 @@
 //1. Deklarera en variabel med namnet todoList
 const todoList = {
   items: [],
+
+
   
   //Lägg till en funktion som lägger till en sak till listan 
   addToList(description) {
@@ -15,22 +17,20 @@ const todoList = {
     this.items.unshift(item)
     console.log(this.items)
     
+  },
+
+  //Ta bort en sak längst ner i listan
+  removeFromBottomOfList(description) {
+    let item = { description }
+    this.items.pop(item)
+    console.log(this.items)
   }
+
+
 
 }
 
 
-
-/* 
-/* 
-/*3. Lägg till en sak att göra överst i listan
-Ibland får man saker att göra som är viktigare än alla andra.Skapa en funktion addToTopOfList som lägger till en sak att göra längst upp i listan, samt returnerar hela listan.*/
-
-/* 
-function addToTopOfList(todoItem) {
-  todoList.unshift(todoItem)
-  return todoList;
-} */
 
 /*4. Ta bort en sak längst ner i listan
 Kanske var det där längst ner i att göra listan inte så viktigt?Skriv en funktion removeFromBottomOfList som tar bort den sak som är längst ner i listan och returnerar den.*/
