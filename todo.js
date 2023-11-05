@@ -2,11 +2,9 @@
 const todoList = {
   items: [],
 
-
-  
   //Lägg till en funktion som lägger till en sak till listan 
   addToList(description) {
-    let item = { description}
+    let item = { description }
     this.items.push(item)
     console.log(this.items)
   },
@@ -16,7 +14,7 @@ const todoList = {
     let item = { description }
     this.items.unshift(item)
     console.log(this.items)
-    
+
   },
 
   //Ta bort en sak längst ner i listan
@@ -24,29 +22,24 @@ const todoList = {
     let item = { description }
     this.items.pop(item)
     console.log(this.items)
+  },
+
+  //5. Ta bort en sak högst upp i listan / första saken i en array. Skrev om tidigare kod för detta.  
+  removeFromTopOfList() {
+    if (this.items.length > 0) {
+      this.items.shift()
+      console.log(this.items)
+    }
+  },
+
+  //6. Ta bort en sak baserad på dess placering i listan 
+  removeFromListByIndex() {
+
   }
-
-
-
 }
 
 
 
-/*4. Ta bort en sak längst ner i listan
-Kanske var det där längst ner i att göra listan inte så viktigt?Skriv en funktion removeFromBottomOfList som tar bort den sak som är längst ner i listan och returnerar den.*/
-/* 
-function removeFromBottomOfList(todoItem) {
-  todoList.pop(todoItem)
-  return todoList;
-} */
-
-/* 5. Ta bort en sak högst upp i listan
-Du fick äntligen det som var viktigast gjort?Skriv en funktion removeFromTopOfList som tar bort den sak som är högst i listan och returnerar den */
-/* 
-function removeFromTopOfList(todoItem) {
-  todoList.shift(todoItem)
-  return todoList;
-} */
 
 /*6. Ta bort en sak baserad på dess placering i listan
 Det är inte alltid man får saker gjorda i ordning.Skriv en funktion removeFromListByIndex till vilken man skickar ett nummer och saken på denna plats i listan tas bort.Returnera den bortplockade saken.
