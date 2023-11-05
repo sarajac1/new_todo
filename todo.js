@@ -2,14 +2,14 @@
 const todoList = {
   items: [],
 
-  //Lägg till en funktion som lägger till en sak till listan 
+  //2. Lägg till en funktion som lägger till en sak till listan 
   addToList(description) {
     let item = { description }
     this.items.push(item)
     console.log(this.items)
   },
 
-  //Lägg till en sak att göra överst i listan
+  //3.Lägg till en sak att göra överst i listan
   addToTopOfList(description) {
     let item = { description }
     this.items.unshift(item)
@@ -17,14 +17,14 @@ const todoList = {
 
   },
 
-  //Ta bort en sak längst ner i listan
+  //4.Ta bort en sak längst ner i listan
   removeFromBottomOfList(description) {
     let item = { description }
     this.items.pop(item)
     console.log(this.items)
   },
 
-  //5. Ta bort en sak högst upp i listan / första saken i en array. Skrev om tidigare kod för detta.  
+  //5.Ta bort en sak högst upp i listan / första saken i en array. Skrev om tidigare kod för detta.  
   removeFromTopOfList() {
     if (this.items.length > 0) {
       this.items.shift()
@@ -33,31 +33,22 @@ const todoList = {
   },
 
   //6. Ta bort en sak baserad på dess placering i listan 
-  removeFromListByIndex() {
-
+  removeFromListByIndex(index) {
+    if (this.items.index < 0) {
+      return null;
+    }
+    if (this.items.index >= this.items.length) {
+      return null;
+    }
+    this.items.splice(index, 1)[0];
+    console.log(this.items)
   }
 }
 
+7.
 
 
 
-/*6. Ta bort en sak baserad på dess placering i listan
-Det är inte alltid man får saker gjorda i ordning.Skriv en funktion removeFromListByIndex till vilken man skickar ett nummer och saken på denna plats i listan tas bort.Returnera den bortplockade saken.
-
-  Notera: För enkelhetens skull räknar vi det översta elementet som nummer 0, nästa som nummer 1 etc.Precis som en dator.Försök inte ”förmänskliga funktionen” till att börja på nummer 1. Då blir den svårare att återanvända i din programmering.
-
-    Notera 2: Tillåt INTE att man försöker ta bort saker på negativa platser, dvs.skickar ett nummer mindre än 0.*/
-
-
-/* function removeFromListByIndex(index) {
-  if (index < 0) {
-    return null;
-  }
-  if (index >= todoList.length) {
-    return null;
-  }
-  return todoList.splice(index, 1)[0];
-} */
 
 /* 7. Ta bort en sak baserad på dess namn
 Skriv en funktion removeFromListByName som hittar en sak i listan baserat på dess namn och tart bort den.Returnera den borttagna saken.
