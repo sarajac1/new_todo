@@ -42,26 +42,22 @@ const todoList = {
     }
     this.items.splice(index, 1)[0];
     console.log(this.items)
-  }
+  },
+
+  //7. Ta bort en sak baserad på dess namn
+  removeFromListByName(description) {
+    for (let index = 0; index < this.items.length; index++) {
+      if (this.items[index].description === description) {
+        this.items.splice(index, 1);
+      }
+    
+    }
+  console.log(this.items)
+  }  
+
 }
 
-7.
 
-
-
-
-/* 7. Ta bort en sak baserad på dess namn
-Skriv en funktion removeFromListByName som hittar en sak i listan baserat på dess namn och tart bort den.Returnera den borttagna saken.
-
-  Notera: Försök att skriva mindre kod genom att återanvända / anropa removeFromListByIndex(från steg 6) inuti din funktion. */
-
-/* function removeFromListByName(todoItem) {
-  for (let index = 0; index <= todoList.length; index++) {
-    if (todoList[index] === todoItem) {
-      return todoList.splice(index, 1)[0];
-    }
-  }
-} */
 
 /* 8. Ta bort en sak och lägg till den i ”har gjort”-lista
 Skapa en att ”har gjort”-lista genom att deklarera en variabel med namnet doneList som en array.
