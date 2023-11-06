@@ -1,6 +1,18 @@
+// låter oss använda funktionen som skriver till en fil
+/* import { appendFileSync } from 'node:fs' */
+
+// funktionen lägger till texten i slutet av filen
+/* appendFileSync(
+  'message.txt',      // vilken fil vi vill lägga till text i
+  'here is some text\n', // text vi vill lägga till, avslutas med \n för att lägga till radbrytning
+  'utf8'              // formatet vi vill använda, utf8 betyder att det ska vara text
+) */
+
 //1. Deklarera en variabel med namnet todoList
 const todoList = {
   items: [],
+  //deklarerar en array med namnet doneList 
+  doneList: [],
 
   //2. Lägg till en funktion som lägger till en sak till listan 
   addToList(description) {
@@ -50,24 +62,45 @@ const todoList = {
       if (this.items[index].description === description) {
         this.items.splice(index, 1);
       }
-    
+
     }
-  console.log(this.items)
-  }  
+    console.log(this.items)
+  },
 
-}
+  //8. Ta bort en sak och lägg till den i en "har gjort"-lista (deklarerad som en array ovan), 
+  // Notera: Försök att skriva mindre kod genom att återanvända / anropa removeFromListByName(från steg 7) inuti din funktion.
+  removeFromListAndAddToDone(index) {
+    if (index >= 0 && index < this.items.length) {
+      let doneItem = this.items.splice(index, 1)[0]
+      this.doneList.push(doneItem)
+    }
+    console.log(this.items)
+  },
+
+/*   //9. Flytta en sak till toppen av listan , Obs funkar ej just nu 
+  moveToTop(description) {
+    let index = this.items.indexOf(item)
+    if (index !== -1) {
+      let removedItem = this.items.splice(index, 1)[0]
+      this.items.unshift(removedItem)
+    }
+
+    return this.items;   
+
+  }, */
+  
+  //10. 10. Flytta en sak till botten av listan
+
+  moveToBottom() {
+    
+  }
+
+
+  }
 
 
 
-/* 8. Ta bort en sak och lägg till den i ”har gjort”-lista
-Skapa en att ”har gjort”-lista genom att deklarera en variabel med namnet doneList som en array.
-Skriv en funktion removeFromListAndAddToDone som flyttar en sak from att göra - listan till ”har gjort”-listan.Returnera listan över saker som är gjorda.
-
-  Notera: Försök att skriva mindre kod genom att återanvända / anropa removeFromListByName(från steg 7) inuti din funktion. */
-
-/* let doneList = [];
-
-function removeFromListAndAddToDone(todoItem) {
+/*function removeFromListAndAddToDone(todoItem) {
   let index = todoList.indexOf(todoItem)
   doneList = todoList.splice(index, 1)[0];
 
