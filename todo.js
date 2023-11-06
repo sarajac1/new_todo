@@ -90,40 +90,17 @@ const todoList = {
   
   //10.Flytta en sak till botten av listan
 
-  moveToBottom() {
-    
+  moveToBottom(description) {
+    let index = this.items.findIndex(item => item.description === description)
+  if (index !== -1){
+    let movedItem = this.items.splice(index, 1)[0]
+    this.items.push(movedItem)
+    }  
+    console.log(this.items)
   }
 
 
   }
-/* 
-let index = this.items.indexOf(item)
-if (index !== -1) {
-  let removedItem = this.items.splice(index, 1)[0]
-  this.items.unshift(removedItem)
-}
-
-console.log(this.items)
-
-  },  */
-
-
-/* 9. Flytta en sak till toppen av listan
-Ibland blir en sak plötsligt riktigt viktig att göra.Skriv en funktion moveToTop som hittar en sak i listan baserat på dess namn och flyttar den till toppen.Returnera hela att göra - listan.
-
-  Notera: Försök att skriva mindre kod genom att återanvända / anropa removeFromListByName(från steg 7) och addToTopOfList(från steg 3) inuti din funktion. */
-/* 
-function moveToTop(todoList, todoItem) {
-  let index = todoList.indexOf(todoItem)
-
-  if (index !== -1) {
-    let removedItem = todoList.splice(index, 1)[0];
-    todoList.unshift(removedItem)
-  }
-  return todoList;
-
-} */
-
 
 
 /* 10. Flytta en sak till botten av listan
