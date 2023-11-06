@@ -76,20 +76,19 @@ const todoList = {
     }
     console.log(this.items)
   },
-
-/*   //9. Flytta en sak till toppen av listan , Obs funkar ej just nu 
+ 
+  //9. Flytta en sak till toppen av listan
   moveToTop(description) {
-    let index = this.items.indexOf(item)
+    let index = this.items.findIndex(item => item.description === description)
     if (index !== -1) {
-      let removedItem = this.items.splice(index, 1)[0]
-      this.items.unshift(removedItem)
+      let movedItem = this.items.splice(index, 1)[0]
+      this.items.unshift(movedItem)
     }
-
-    return this.items;   
-
-  }, */
+    console.log(this.items)
   
-  //10. 10. Flytta en sak till botten av listan
+  }, 
+  
+  //10.Flytta en sak till botten av listan
 
   moveToBottom() {
     
@@ -97,15 +96,17 @@ const todoList = {
 
 
   }
+/* 
+let index = this.items.indexOf(item)
+if (index !== -1) {
+  let removedItem = this.items.splice(index, 1)[0]
+  this.items.unshift(removedItem)
+}
 
+console.log(this.items)
 
+  },  */
 
-/*function removeFromListAndAddToDone(todoItem) {
-  let index = todoList.indexOf(todoItem)
-  doneList = todoList.splice(index, 1)[0];
-
-
-} */
 
 /* 9. Flytta en sak till toppen av listan
 Ibland blir en sak plötsligt riktigt viktig att göra.Skriv en funktion moveToTop som hittar en sak i listan baserat på dess namn och flyttar den till toppen.Returnera hela att göra - listan.
