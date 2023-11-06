@@ -1,5 +1,12 @@
+//Exporterar klassen så den kan användas i andra filer 
+export default class todoList {
+
+}
+
 // låter oss använda funktionen som skriver till en fil
-/* import { appendFileSync } from 'node:fs' */
+//import { appendFileSync } from 'node:fs'
+
+
 
 // funktionen lägger till texten i slutet av filen
 /* appendFileSync(
@@ -97,25 +104,29 @@ const todoList = {
     this.items.push(movedItem)
     }  
     console.log(this.items)
+  },
+
+  //11. Flytta en sak ett steg ner i listan 
+  moveDown(description) {
+    let index = this.items.findIndex(item => item.description === description)
+    if (index !== -1 && index < this.items.length - 1) {
+    [this.items[index], this.items[index + 1]] = [this.items[index + 1], this.items[index]]
+    }
+    console.log(this.items)
+  },
+
+  //12. Flytta en sak ett steg upp i listan, funkar ej 
+  moveUp(description) {
+    let index = this.items.findIndex(item => item.description === description)
+    if (index > 0) {
+    [this.items[index], this.items[index - 1]]  = [this.items[index - 1], this.items[index]]
+    }
+    console.log(this.items)
   }
 
 
-  }
+}
 
-
-/* 10. Flytta en sak till botten av listan
-Ibland blir en sak plötsligt ganska oprioriterad.Skriv en funktion moveToBottom som hittar en sak i listan baserat på dess namn och flyttar den till botten.Returnera hela att göra - listan.
-
-  Notera: Försök att skriva mindre kod genom att återanvända / anropa removeFromListByName(från steg 7) och addToList(från steg 2) inuti din funktion. */
-
-/* function moveToBottom(todoList, todoItem) {
-  let index = todoList.indexOf(todoItem)
-  if (index !== -1) {
-    let removedItem = todoList.splice(index, 1)[0]
-    todoList.push(removedItem)
-  }
-  return todoList;
-} */
 
 
 /* 11. Flytta en sak ett steg ner i listan
@@ -130,6 +141,7 @@ Ibland behöver man prioritera ner något lite grann.Skriv en funktion moveDown 
     todoList[index] = todoList[index + 1];
     todoList[index + 1] = temp;
   }
+  [this.items[index], this.items[index + 1]] = [this.items[index + 1], this.items[index]]
   return todoList;
 } */
 
