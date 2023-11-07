@@ -1,7 +1,7 @@
-//Exporterar klassen så den kan användas i andra filer 
-export default class todoList {
+//Exporterar listan så den kan användas i andra filer 
+export { todoList }
 
-}
+
 
 // låter oss använda funktionen som skriver till en fil
 //import { appendFileSync } from 'node:fs'
@@ -14,6 +14,7 @@ export default class todoList {
   'here is some text\n', // text vi vill lägga till, avslutas med \n för att lägga till radbrytning
   'utf8'              // formatet vi vill använda, utf8 betyder att det ska vara text
 ) */
+//let contacts = fs.readFileSync("contacts.csv", "utf8")
 
 //1. Deklarera en variabel med namnet todoList
 const todoList = {
@@ -28,6 +29,7 @@ const todoList = {
     console.log(this.items)
   },
 
+  
   //3.Lägg till en sak att göra överst i listan
   addToTopOfList(description) {
     let item = { description }
@@ -83,7 +85,7 @@ const todoList = {
     }
     console.log(this.items)
   },
- 
+
   //9. Flytta en sak till toppen av listan
   moveToTop(description) {
     let index = this.items.findIndex(item => item.description === description)
@@ -92,17 +94,17 @@ const todoList = {
       this.items.unshift(movedItem)
     }
     console.log(this.items)
-  
-  }, 
-  
+
+  },
+
   //10.Flytta en sak till botten av listan
 
   moveToBottom(description) {
     let index = this.items.findIndex(item => item.description === description)
-  if (index !== -1){
-    let movedItem = this.items.splice(index, 1)[0]
-    this.items.push(movedItem)
-    }  
+    if (index !== -1) {
+      let movedItem = this.items.splice(index, 1)[0]
+      this.items.push(movedItem)
+    }
     console.log(this.items)
   },
 
@@ -110,52 +112,19 @@ const todoList = {
   moveDown(description) {
     let index = this.items.findIndex(item => item.description === description)
     if (index !== -1 && index < this.items.length - 1) {
-    [this.items[index], this.items[index + 1]] = [this.items[index + 1], this.items[index]]
+      [this.items[index], this.items[index + 1]] = [this.items[index + 1], this.items[index]]
     }
     console.log(this.items)
   },
 
-  //12. Flytta en sak ett steg upp i listan, funkar ej 
+  //12. Flytta en sak ett steg upp i listan
   moveUp(description) {
     let index = this.items.findIndex(item => item.description === description)
     if (index > 0) {
-    [this.items[index], this.items[index - 1]]  = [this.items[index - 1], this.items[index]]
+      [this.items[index], this.items[index - 1]] = [this.items[index - 1], this.items[index]]
     }
     console.log(this.items)
   }
 
-
 }
 
-
-
-/* 11. Flytta en sak ett steg ner i listan
-Ibland behöver man prioritera ner något lite grann.Skriv en funktion moveDown som flyttar en sak ett steg ner i listan.
-
-  Tips: Man kan även se detta som att saken byter plats med det som var nedanför den. */
-
-/* function moveDown(todoList, todoItem) {
-  let index = todoList.indexOf(todoItem);
-  if (index !== -1 && index < todoList.length - 1) {
-    let temp = todoList[index];
-    todoList[index] = todoList[index + 1];
-    todoList[index + 1] = temp;
-  }
-  [this.items[index], this.items[index + 1]] = [this.items[index + 1], this.items[index]]
-  return todoList;
-} */
-
-/* 12. Flytta en sak ett steg upp i listan
-Ibland behöver man prioritera upp något lite grann.Skriv en funktion moveUp som flyttar en sak ett steg upp i listan.
-
-  Tips: Man kan även se detta som att saken byter plats med det som var ovanför den. */
-
-/* function moveUp(todoList, todoItem) {
-  let index = todoList.indexOf(todoItem);
-  if (index > 0) {
-    let temp = todoList[index];
-    todoList[index] = todoList[index - 1];
-    todoList[index - 1] = temp;
-  }
-  return todoList;
-} */
