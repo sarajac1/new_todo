@@ -1,19 +1,18 @@
 //Exporterar listan så den kan användas i andra filer 
 export { todoList }
 
-
-
 // låter oss använda funktionen som skriver till en fil
-//import { appendFileSync } from 'node:fs'
+import { appendFileSync } from 'node:fs'
+import { readFileSync } from 'node:fs'
 
+//let savedItems = readFileSync('items.csv', 'utf8')
 
-
-// funktionen lägger till texten i slutet av filen
-/* appendFileSync(
-  'message.txt',      // vilken fil vi vill lägga till text i
-  'here is some text\n', // text vi vill lägga till, avslutas med \n för att lägga till radbrytning
-  'utf8'              // formatet vi vill använda, utf8 betyder att det ska vara text
-) */
+//funktionen lägger till texten i slutet av filen
+//appendFileSync(
+  //'message.txt',      // vilken fil vi vill lägga till text i
+  //'here is some text\n', // text vi vill lägga till, avslutas med \n för att lägga till radbrytning
+  //'utf8'              // formatet vi vill använda, utf8 betyder att det ska vara text
+//) */
 //let contacts = fs.readFileSync("contacts.csv", "utf8")
 
 //1. Deklarera en variabel med namnet todoList
@@ -27,6 +26,19 @@ const todoList = {
     let item = { description }
     this.items.push(item)
     console.log(this.items)
+  },
+
+  //Sparar till fil
+  saveToFile (fileName){
+    this.items.forEach(item => {
+      appendFileSync(fileName, item.description + '\n', 'utf8')
+    })
+  },
+
+  //Visar det som sparats till fil
+  displaySavedItems(fileName) {
+    let savedItems = readFileSync(fileName, 'utf-8') 
+    console.log(savedItems)
   },
 
   
@@ -77,7 +89,6 @@ const todoList = {
   },
 
   //8. Ta bort en sak och lägg till den i en "har gjort"-lista (deklarerad som en array ovan), 
-  // Notera: Försök att skriva mindre kod genom att återanvända / anropa removeFromListByName(från steg 7) inuti din funktion.
   removeFromListAndAddToDone(index) {
     if (index >= 0 && index < this.items.length) {
       let doneItem = this.items.splice(index, 1)[0]
