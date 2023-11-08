@@ -31,8 +31,8 @@
       if (description.trim() !== '') {
         todoList.addToList(description.trim())
       }
-      console.log(savedItems)
     })
+    console.log(savedItems)
   },
 
   //3.Lägg till en sak att göra överst i listan
