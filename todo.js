@@ -1,10 +1,37 @@
-  //Exporterar listan så den kan användas i andra filer 
-  export { todoList }
+  //Exporterar innehållet i denna fil så den kan användas i andra filer 
+  export { todoList, HandleList }
 
   //Importerar använda funktioner som skriver till en fil
-  import { appendFileSync, readFileSync } from 'node:fs'
+import { appendFileSync, readFileSync } from 'node:fs'
+  
 
-  //1. Deklarera en variabel med namnet todoList
+//Deklarerar to do list som ett nytt objekt:
+const todoList = {
+  items: [],
+
+}  
+class HandleList {
+  constructor(title, description, priority, deadline) {
+    this.title = title;
+    this.description = description;
+    this.priority = priority;
+    this.deadline = deadline;
+  }
+  
+  addToList() {
+    let item = {
+      title: this.title,
+      description: this.description,
+      priority: this.priority,
+      deadline: this.deadline
+    };
+    todoList.items.push(item);
+    console.log(todoList.items);
+  }
+}
+
+
+  /* //1. Deklarera en variabel med namnet todoList
   const todoList = {
   items: [],
   //deklarerar en array med namnet doneList 
@@ -125,3 +152,4 @@
       console.log(this.items)
     }
   }
+ */
