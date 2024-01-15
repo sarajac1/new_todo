@@ -31,6 +31,22 @@ class HandleItem {
     
   }
 
+  //Sparar till fil (sparar just nu hela listans innehåll)
+  saveToFile(fileName) {
+    todoList.items.forEach(item => {
+      const listContents = `${item.title}, ${item.description}, ${item.priority}, ${item.deadline}`;
+      appendFileSync(fileName, listContents + '\n', 'utf8' )
+    })
+
+  }
+
+  //Sparar till fil
+/*   saveToFile(fileName) {
+    this.items.forEach(item => {
+      appendFileSync(fileName, item.description + '\n', 'utf8')
+    })
+  }, */
+
 //Lägg till en sak att göra överst i listan
 addToTopOfList() {
   todoList.items.unshift({
@@ -43,13 +59,6 @@ addToTopOfList() {
 }
 
 
-
-//3.Lägg till en sak att göra överst i listan
-/* addToTopOfList(description) {
-  let item = { description }
-  this.items.unshift(item)
-  console.log(this.items)
-} */
 
 
   /* //1. Deklarera en variabel med namnet todoList

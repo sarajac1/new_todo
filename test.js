@@ -14,7 +14,9 @@ newItem2.addToList();
 //Lägger till en ny sak på toppen av listan
 let newItem3 = new HandleItem('Gymma', 'Leg day', 'Medium', 'Idag kl. 22');
 newItem3.addToTopOfList();
-console.log(todoList.items);
+
+//Sparar (samtliga saker på listan) till fil
+newItem3.saveToFile('SavedList.csv'); 
 
 
 
