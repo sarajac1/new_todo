@@ -31,7 +31,12 @@ newItem3.addToList();
 
 //Tar bort den första saken i listan
 //newItem2.removeFromTopofList();
-//console.log(todoList.items); 
+//console.log(todoList.items);
+
+//Tar bort en sak baserad på dess index
+//newItem2.removeFromListByIndex(1);
+
+console.log(todoList.items); 
 
 
 

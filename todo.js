@@ -70,6 +70,13 @@ class HandleItem {
     
   }
 
+  //Ta bort en sak baserad på dess placering i listan
+  removeFromListByIndex(index) {
+    if (index < 0 || index >= todoList.items.length) {
+      return null;
+    }
+    todoList.items.splice(index, 1)[0];
+  }
 
 
 }
