@@ -15,7 +15,8 @@ newItem2.addToList();
 let newItem3 = new HandleItem('Gymma', 'Leg day', 'Medium', 'Idag kl. 22');
 newItem3.addToList(); 
 
-console.log(todoList.items); 
+
+
 
 //Sparar (samtliga saker på listan) till fil
 //newItem3.saveToFile('SavedList.csv');
@@ -25,7 +26,13 @@ console.log(todoList.items);
 //newItem3.displaySavedItems('SavedList.csv');
 
 //Tar bort det sista objektet i to do list
-//todoList.items.pop();
+//newItem3.removeFromBottomOfList();
+
+
+//Tar bort den första saken i listan
+//newItem2.removeFromTopofList();
+//console.log(todoList.items); 
+
 
 
 
