@@ -60,7 +60,15 @@ addToTopOfList() {
     priority: this.priority,
     deadline: this.deadline
   });
-}
+  }
+
+  //Ta bort en sak längst ner i listan
+  removeFromBottomOfList() {
+    todoList.items.pop();
+  }
+  
+
+
 }
 
 

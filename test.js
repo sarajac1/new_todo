@@ -13,16 +13,21 @@ newItem2.addToList();
 
 //Lägger till en ny sak på toppen av listan
 let newItem3 = new HandleItem('Gymma', 'Leg day', 'Medium', 'Idag kl. 22');
-newItem3.addToTopOfList();
-
-//Sparar (samtliga saker på listan) till fil
-newItem3.saveToFile('SavedList.csv');
-
-
-// Flyttar innehållet av sparade items till den nuvarande to do listan 
-newItem3.displaySavedItems('SavedList.csv');
+newItem3.addToList(); 
 
 console.log(todoList.items); 
+
+//Sparar (samtliga saker på listan) till fil
+//newItem3.saveToFile('SavedList.csv');
+
+
+// Flyttar innehållet av sparade items till den nuvarande to do listan
+//newItem3.displaySavedItems('SavedList.csv');
+
+//Tar bort det sista objektet i to do list
+//todoList.items.pop();
+
+
 
 
 
