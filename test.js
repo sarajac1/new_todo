@@ -1,10 +1,16 @@
 //importerar klass från annan fil så den kan användas i denna 
-import { HandleList} from "./todo.js"
+import { HandleItem, todoList} from "./todo.js"
 
-//Skapar en ny instans av listan med importerade klasser
+//Skapar en ny instans av listan med importerade klasser 
+const newItem = new HandleItem('Plugga', 'Kompletttera JS', 'Hög', 'ASAP');
 
-const list = new HandleList;
+//Lägger till en sak på listan och visar listans innehåll 
+newItem.addToList();
 
 
-list.addToList('Plugga', 'Komplettera JS', 'Hög', 'ASASP');
-console.log(list); 
+let newItem2 = new HandleItem('Handla', 'Matvaror på ICA', 'Låg', '20 januari');
+newItem2.addToList();
+console.log(todoList.items);
+
+
+
