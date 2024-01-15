@@ -1,10 +1,10 @@
 //importerar klass från annan fil så den kan användas i denna 
-import { HandleItem, todoList} from "./todo.js"
+import { HandleItem, todoList } from "./todo.js"
 
-//Skapar en ny instans av listan med importerade klasser 
+//Skapar ett nytt objekt, en ny sak 
 const newItem = new HandleItem('Plugga', 'Kompletttera JS', 'Hög', 'ASAP');
 
-//Lägger till en sak på listan
+//Lägger till saken på listan
 newItem.addToList();
 
 let newItem2 = new HandleItem('Handla', 'Matvaror på ICA', 'Låg', '20 januari');
@@ -16,7 +16,16 @@ let newItem3 = new HandleItem('Gymma', 'Leg day', 'Medium', 'Idag kl. 22');
 newItem3.addToTopOfList();
 
 //Sparar (samtliga saker på listan) till fil
-newItem3.saveToFile('SavedList.csv'); 
+newItem3.saveToFile('SavedList.csv');
+
+
+// Flyttar innehållet av sparade items till den nuvarande to do listan 
+newItem3.displaySavedItems('SavedList.csv');
+
+console.log(todoList.items); 
+
+
+
 
 
 

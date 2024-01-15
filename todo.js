@@ -1,9 +1,10 @@
   //Exporterar innehållet i denna fil så den kan användas i andra filer 
-export { todoList, HandleItem }
+export { HandleItem, todoList,  }
   
 
 //Importerar använda funktioner som skriver till en fil
 import { appendFileSync, readFileSync } from 'node:fs'
+
   
 
 //Deklarerar to do list som ett nytt objekt, innehållandes en tom array:
@@ -37,15 +38,19 @@ class HandleItem {
       const listContents = `${item.title}, ${item.description}, ${item.priority}, ${item.deadline}`;
       appendFileSync(fileName, listContents + '\n', 'utf8' )
     })
-
   }
 
-  //Sparar till fil
-/*   saveToFile(fileName) {
-    this.items.forEach(item => {
-      appendFileSync(fileName, item.description + '\n', 'utf8')
+  //Visar det som sparats till fil
+  displaySavedItems(fileName) {
+    let savedItems = readFileSync(fileName, 'utf-8')
+    savedItems.split('\n').forEach(line => {
+      if (line.trim() !== '') {
+        const [title, description, priority, deadline] = line.split(',');
+        this.addToList(title.trim(), description.trim(), priority.trim(), deadline.trim());
+    }
     })
-  }, */
+   
+  }
 
 //Lägg till en sak att göra överst i listan
 addToTopOfList() {
