@@ -30,7 +30,26 @@ class HandleItem {
     });
     
   }
+
+//Lägg till en sak att göra överst i listan
+addToTopOfList() {
+  todoList.items.unshift({
+    title: this.title,
+    description: this.description,
+    priority: this.priority,
+    deadline: this.deadline
+  });
 }
+}
+
+
+
+//3.Lägg till en sak att göra överst i listan
+/* addToTopOfList(description) {
+  let item = { description }
+  this.items.unshift(item)
+  console.log(this.items)
+} */
 
 
   /* //1. Deklarera en variabel med namnet todoList
