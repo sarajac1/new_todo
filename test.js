@@ -11,12 +11,13 @@ let newItem2 = new todoListItem('Handla', 'Matvaror på ICA', 'Låg', '20 januar
 newItem2.addToList();
 
 
-//Lägger till en ny sak på toppen av listan
+//Skapar ett nytt objekt och lägger till en ny sak på listan
 let newItem3 = new todoListItem('Gymma', 'Leg day', 'Medium', 'Idag kl. 22');
 newItem3.addToList(); 
 
 //Skapar ett nytt objekt som består av de tidigare inmatade objekten 
 const listItems = { newItem, newItem2, newItem3 }; 
+
 
 
 
@@ -46,7 +47,12 @@ const listItems = { newItem, newItem2, newItem3 };
 //console.log(doneList.items);
 
 //Flytta en sak till toppen av listan
+//newItem3.moveToTop('Handla');
 
+//Flytta en sak längst ner på listan
+//newItem3.moveToBottom('Handla');
+
+console.log(todoList.items);  
 
 
 

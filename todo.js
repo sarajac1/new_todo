@@ -15,7 +15,7 @@ const doneList = {
   items: [],
 }
 
-//Ny klass för att hantera var sak på listan 
+//Ny klass för att skapa nya listobjekt 
 class todoListItem {
   constructor(title, description, priority, deadline) {
     this.title = title;
@@ -103,16 +103,27 @@ class todoListItem {
 
   }
 
-  //Flytta en sak till toppen av listan, fungerar inte som det ska just nu, fortsätt senare 
-  moveToTop(description) {
-    let index = todoList.items.findIndex(item => item.description === description)
+  //Flytta en sak till toppen av listan, fungerar inte som det ska just nu, lägger till en kopia av objektet på toppen av listan
+  moveToTop(title) {
+    let index = todoList.items.findIndex(item => item.title === title);
     if (index !== -1) {
-      let movedItem = todoList.items.splice(index, 1)[0]
-      todoList.items.unshift(movedItem)
+      let movedItem = todoList.items.splice(index, 1)[0];
+      todoList.items.unshift(movedItem); 
     }
   }
 
- 
+  //Flytta en sak till botten av listan
+  moveToBottom(title) {
+    let index = todoList.items.findIndex(item => item.title === title);
+    if (index !== -1) {
+      let movedItem = todoList.items.splice(index, 1)[0];
+      todoList.items.push(movedItem);
+      
+    }
+
+  }
+
+
 
 
 }
