@@ -1,13 +1,19 @@
   //Exporterar innehållet i denna fil så den kan användas i andra filer 
-export { HandleItem, todoList,  }
+export { HandleItem, todoList, doneList }
   
-//Importerar använda funktioner som skriver till en fil
+//Importerar funktioner som skriver till fil
 import { appendFileSync, readFileSync } from 'node:fs'
 
 //Deklarerar to do list som ett nytt objekt, innehållandes en tom array:
 const todoList = {
   items: [],
-}  
+}
+
+
+//Deklarerar doneList som ett nytt objekt, innehållandes en tom array
+const doneList = {
+  items: [],
+}
 
 //Ny klass för att hantera var sak på listan 
 class HandleItem {
@@ -29,7 +35,7 @@ class HandleItem {
     
   }
 
-  //Funktion som sparar till fil (sparar just nu hela listans innehåll)
+  //Funktion som sparar listans innehåll till fill 
   saveToFile(fileName) {
     todoList.items.forEach(item => {
       const listContents = `${item.title}, ${item.description}, ${item.priority}, ${item.deadline}`;
@@ -67,7 +73,6 @@ class HandleItem {
   //Funktion för att ta bort en sak högst upp i listan/först saken i en array
   removeFromTopofList() {
       todoList.items.shift();
-    
   }
 
   //Ta bort en sak baserad på dess placering i listan
@@ -78,5 +83,24 @@ class HandleItem {
     todoList.items.splice(index, 1)[0];
   }
 
+  //Ta bort en sak baserad på dess namn
+
+  removeFromListByName(title) {
+    for (let index = 0; index < todoList.items.length; index++) {
+      if (todoList.items[index].title === title) {
+        todoList.items.splice(index, 1);
+      }
+      
+    }
+  }
+
+  //8. Ta bort en sak och lägg till den i en "har gjort"-lista (deklarerad som en array ovan), 
+  removeFromListAndAddToDone(index) {
+    if (index >= 0 && index < todoList.items.length) {
+      let doneItem = todoList.items.splice(index, 1)[0]
+      doneList.items.push(doneItem)
+    }
+
+  }
 
 }

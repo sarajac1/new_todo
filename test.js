@@ -1,5 +1,5 @@
 //importerar klass från annan fil så den kan användas i denna 
-import { HandleItem, todoList } from "./todo.js"
+import { HandleItem, todoList, doneList } from "./todo.js"
 
 //Skapar ett nytt objekt, en ny sak 
 const newItem = new HandleItem('Plugga', 'Kompletttera JS', 'Hög', 'ASAP');
@@ -36,7 +36,12 @@ newItem3.addToList();
 //Tar bort en sak baserad på dess index
 //newItem2.removeFromListByIndex(1);
 
-console.log(todoList.items); 
+//Ta bort en sak baserad på dess namn
+//newItem3.removeFromListByName('Handla');
+
+//Ta bort en sak och lägg till på en "doneList"
+//newItem3.removeFromListAndAddToDone(1); 
+//console.log(doneList.items); 
 
 
 
