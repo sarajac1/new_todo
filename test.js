@@ -1,20 +1,22 @@
 //importerar klass från annan fil så den kan användas i denna 
-import { HandleItem, todoList, doneList } from "./todo.js"
+import { todoListItem, todoList, doneList } from "./todo.js"
 
 //Skapar ett nytt objekt, en ny sak 
-const newItem = new HandleItem('Plugga', 'Kompletttera JS', 'Hög', 'ASAP');
+const newItem = new todoListItem('Plugga', 'Kompletttera JS', 'Hög', 'ASAP');
 
 //Lägger till saken på listan
 newItem.addToList();
 
-let newItem2 = new HandleItem('Handla', 'Matvaror på ICA', 'Låg', '20 januari');
+let newItem2 = new todoListItem('Handla', 'Matvaror på ICA', 'Låg', '20 januari');
 newItem2.addToList();
 
 
 //Lägger till en ny sak på toppen av listan
-let newItem3 = new HandleItem('Gymma', 'Leg day', 'Medium', 'Idag kl. 22');
+let newItem3 = new todoListItem('Gymma', 'Leg day', 'Medium', 'Idag kl. 22');
 newItem3.addToList(); 
 
+//Skapar ett nytt objekt som består av de tidigare inmatade objekten 
+const listItems = { newItem, newItem2, newItem3 }; 
 
 
 
@@ -40,8 +42,12 @@ newItem3.addToList();
 //newItem3.removeFromListByName('Handla');
 
 //Ta bort en sak och lägg till på en "doneList"
-//newItem3.removeFromListAndAddToDone(1); 
-//console.log(doneList.items); 
+//newItem3.removeFromListAndAddToDone(1);
+//console.log(doneList.items);
+
+//Flytta en sak till toppen av listan
+
+
 
 
 

@@ -1,5 +1,5 @@
   //Exporterar innehållet i denna fil så den kan användas i andra filer 
-export { HandleItem, todoList, doneList }
+export { todoListItem, todoList, doneList }
   
 //Importerar funktioner som skriver till fil
 import { appendFileSync, readFileSync } from 'node:fs'
@@ -16,7 +16,7 @@ const doneList = {
 }
 
 //Ny klass för att hantera var sak på listan 
-class HandleItem {
+class todoListItem {
   constructor(title, description, priority, deadline) {
     this.title = title;
     this.description = description;
@@ -94,7 +94,7 @@ class HandleItem {
     }
   }
 
-  //8. Ta bort en sak och lägg till den i en "har gjort"-lista (deklarerad som en array ovan), 
+  //Ta bort en sak och lägg till den i en "har gjort"-lista (deklarerad som en array ovan), 
   removeFromListAndAddToDone(index) {
     if (index >= 0 && index < todoList.items.length) {
       let doneItem = todoList.items.splice(index, 1)[0]
@@ -102,5 +102,17 @@ class HandleItem {
     }
 
   }
+
+  //Flytta en sak till toppen av listan, fungerar inte som det ska just nu, fortsätt senare 
+  moveToTop(description) {
+    let index = todoList.items.findIndex(item => item.description === description)
+    if (index !== -1) {
+      let movedItem = todoList.items.splice(index, 1)[0]
+      todoList.items.unshift(movedItem)
+    }
+  }
+
+ 
+
 
 }
