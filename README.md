@@ -1,4 +1,4 @@
-Uppdaterad version, tidigare version finns på GitHub 
+Uppdaterad version, tidigare version finns på GitHub eller i filen "old.js"
 
 Kör applikationen från test.js.
 Skriv "node test.js" i terminalen.

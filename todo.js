@@ -123,7 +123,21 @@ class todoListItem {
 
   }
 
+  //Flytta en sak ett steg ner i listan
+  moveDown(title) {
+    let index = todoList.items.findIndex(item => item.title === title);
+    if (index !== -1 && index < todoList.items.length) {
+      [todoList.items[index], todoList.items[index + 1]] = [todoList.items[index + 1], todoList.items[index]]
+    }
+  }
 
+  //Flytta en sak ett steg upp i listan
+  moveUp(title) {
+    let index = todoList.items.findIndex(item => item.title === title);
+    if (index > 0) {
+      [todoList.items[index], todoList.items[index - 1]] = [todoList.items[index - 1], todoList.items[index]]
+    }
+  }
 
 
 }

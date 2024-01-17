@@ -52,6 +52,12 @@ const listItems = { newItem, newItem2, newItem3 };
 //Flytta en sak längst ner på listan
 //newItem3.moveToBottom('Handla');
 
+//Flytta en sak ett steg ner i listan
+//newItem3.moveDown('Handla');
+
+//Flytta en sak ett steg upp i listan
+//newItem3.moveToTop('Gymma'); 
+
 console.log(todoList.items);  
 
 
