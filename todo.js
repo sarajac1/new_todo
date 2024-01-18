@@ -22,9 +22,9 @@ class todoListItem {
     this.priority = priority;
     this.deadline = deadline;
   }
-  
+
   //Funktion som lägger till en ny sak i listan
-  addToList() {
+  addToList = () => {
   let newItem = {
       title: this.title,
       description: this.description,
@@ -32,7 +32,7 @@ class todoListItem {
       deadline: this.deadline
     };
     todoList.items.push(newItem);
-    console.log(`Successfully added item to the list:\n${JSON.stringify(newItem, null, 2)}`);
+    console.log("Successfully added item to the list.")
 
   }
 
@@ -42,26 +42,24 @@ class todoListItem {
   }
 
 
-  //Funktion som sparar listans innehåll till fill 
+  //Funktion som sparar listans innehåll till fill och rensar den nuvarande to do list
   saveToFile(fileName) {
-    todoList.items.forEach(item => {
-      const listContents = `${item.title}, ${item.description}, ${item.priority}, ${item.deadline}`;
-      appendFileSync(fileName, listContents + '\n', 'utf8')
-    })
-    console.log("Successfully saved items to file.")
+    const jsonData = JSON.stringify(todoList.items, null, 2);
+    appendFileSync(fileName, `${jsonData}\n`, 'utf8');
+    console.log("Successfully saved items to file.");
+    todoList.items = []; 
   }
 
-  //Funktion som visar det som sparats till fil
-  displaySavedItems(fileName) {
+  //Funktion som läser från fil, lägger till i to do list 
+  moveSavedItems(fileName) {
     let savedItems = readFileSync(fileName, 'utf-8')
-    savedItems.split('\n').forEach(line => {
-      if (line.trim() !== '') {
-        const [title, description, priority, deadline] = line.split(',');
-        this.addToList(title.trim(), description.trim(), priority.trim(), deadline.trim());
-      }
-    })
-
+    let parsedItems = JSON.parse(savedItems);
+    parsedItems.forEach(item => {
+      this.addToList(item.title, item.description, item.priority, item.deadline);
+      console.log(`Added to the to do list:\n${JSON.stringify(item, null, 2)}`)
+    });
   }
+
 
   //Funktion för att lägga till en sak att göra överst i listan
   addToTopOfList() {
